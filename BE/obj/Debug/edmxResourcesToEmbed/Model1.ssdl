@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BookLoan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mem_id" Type="int" Nullable="false" />
+    <Property Name="doc_id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="BookName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="ReturnDate" Type="datetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Condition" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DateReceived" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Classroom">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClassGrade" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookLoan" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeletedBookLoan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mem_id" Type="int" Nullable="false" />
+    <Property Name="doc_id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="BookName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="ReturnDate" Type="datetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Condition" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DateReceived" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DeletedDocument">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Writer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Inventory" Type="nvarchar" MaxLength="50" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="50" />
+    <Property Name="CoverName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PartNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="nvarchar" MaxLength="100" />
+    <Property Name="Topic" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="HelpNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookLoan" Type="int" />
+  </EntityType>
+  <EntityType Name="DeletedMembers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" />
+    <Property Name="NationalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Credit" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="OtherSpecifications" Type="nvarchar" MaxLength="500" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="CompletionDate" Type="datetime" />
+    <Property Name="Classroom_id" Type="int" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookLoan" Type="int" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DocumentRegistration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Writer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Inventory" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="CoverName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PartNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="nvarchar" MaxLength="10" />
+    <Property Name="Topic" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="HelpNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookLoan" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Librarians">
+    <Key>
+      <PropertyRef Name="Log_id" />
+    </Key>
+    <Property Name="Log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Log_UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Log_Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NationalCode" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="string" Type="nvarchar" MaxLength="50" />
+    <Property Name="bool" Type="bit" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MemberRegistration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" />
+    <Property Name="NationalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Credit" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="OtherSpecifications" Type="nvarchar" MaxLength="500" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="CompletionDate" Type="datetime" />
+    <Property Name="Classroom_id" Type="int" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookLoan" Type="int" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Library.dbo.BookReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BookReport">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="BookName" />
+      <PropertyRef Name="Writer" />
+      <PropertyRef Name="BookLoan" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Writer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookLoan" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Library.dbo.UserReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="UserReport">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="NationalCode" />
+      <PropertyRef Name="BookLoan" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NationalCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookLoan" Type="int" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_BookLoan_DocumentRegistration">
+    <End Role="DocumentRegistration" Type="Self.DocumentRegistration" Multiplicity="1" />
+    <End Role="BookLoan" Type="Self.BookLoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentRegistration">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BookLoan">
+        <PropertyRef Name="doc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookLoan_MemberRegistration">
+    <End Role="MemberRegistration" Type="Self.MemberRegistration" Multiplicity="1" />
+    <End Role="BookLoan" Type="Self.BookLoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberRegistration">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BookLoan">
+        <PropertyRef Name="mem_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberRegistration_Classroom">
+    <End Role="Classroom" Type="Self.Classroom" Multiplicity="0..1" />
+    <End Role="MemberRegistration" Type="Self.MemberRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classroom">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MemberRegistration">
+        <PropertyRef Name="Classroom_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibraryModelStoreContainer">
+    <EntitySet Name="BookLoan" EntityType="Self.BookLoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Classroom" EntityType="Self.Classroom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeletedBookLoan" EntityType="Self.DeletedBookLoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeletedDocument" EntityType="Self.DeletedDocument" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeletedMembers" EntityType="Self.DeletedMembers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentRegistration" EntityType="Self.DocumentRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Librarians" EntityType="Self.Librarians" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="log" EntityType="Self.log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberRegistration" EntityType="Self.MemberRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookReport" EntityType="Self.BookReport" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BookReport].[id] AS [id], 
+    [BookReport].[BookName] AS [BookName], 
+    [BookReport].[Writer] AS [Writer], 
+    [BookReport].[BookLoan] AS [BookLoan]
+    FROM [dbo].[BookReport] AS [BookReport]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UserReport" EntityType="Self.UserReport" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UserReport].[id] AS [id], 
+    [UserReport].[Name] AS [Name], 
+    [UserReport].[NationalCode] AS [NationalCode], 
+    [UserReport].[UserType] AS [UserType], 
+    [UserReport].[BookLoan] AS [BookLoan], 
+    [UserReport].[ClassName] AS [ClassName]
+    FROM [dbo].[UserReport] AS [UserReport]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_BookLoan_DocumentRegistration" Association="Self.FK_BookLoan_DocumentRegistration">
+      <End Role="DocumentRegistration" EntitySet="DocumentRegistration" />
+      <End Role="BookLoan" EntitySet="BookLoan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookLoan_MemberRegistration" Association="Self.FK_BookLoan_MemberRegistration">
+      <End Role="MemberRegistration" EntitySet="MemberRegistration" />
+      <End Role="BookLoan" EntitySet="BookLoan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberRegistration_Classroom" Association="Self.FK_MemberRegistration_Classroom">
+      <End Role="Classroom" EntitySet="Classroom" />
+      <End Role="MemberRegistration" EntitySet="MemberRegistration" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

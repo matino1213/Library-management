@@ -1,0 +1,15 @@
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\BLL.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\BLL.pdb
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\BE.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\DAL.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\EntityFramework.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\BE.pdb
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\BE.dll.config
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\DAL.pdb
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\DAL.dll.config
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\bin\Debug\EntityFramework.xml
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\obj\Debug\BLL.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BLL\obj\Debug\BLL.pdb

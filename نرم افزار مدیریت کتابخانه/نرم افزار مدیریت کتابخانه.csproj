@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1763EAE1-4EE8-408F-8BBB-E2F55767CC31}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>نرم_افزار_مدیریت_کتابخانه</RootNamespace>
+    <AssemblyName>نرم افزار مدیریت کتابخانه</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Annotation-2022-10-26-160545_1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.37, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.pdfa.5.5.13.3\lib\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xtra.5.5.13.3\lib\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDate.Designer.cs">
+      <DependentUpon>AddDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AfzodanSanad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfzodanSanad.Designer.cs">
+      <DependentUpon>AfzodanSanad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AmanatKetab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmanatKetab.Designer.cs">
+      <DependentUpon>AmanatKetab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AzaKetabkhane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AzaKetabkhane.Designer.cs">
+      <DependentUpon>AzaKetabkhane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeletedItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeletedItems.Designer.cs">
+      <DependentUpon>DeletedItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FaramoshiRamz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaramoshiRamz.Designer.cs">
+      <DependentUpon>FaramoshiRamz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportClass.Designer.cs">
+      <DependentUpon>ReportClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportDoc.Designer.cs">
+      <DependentUpon>ReportDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportMem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportMem.Designer.cs">
+      <DependentUpon>ReportMem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SabtClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SabtClass.Designer.cs">
+      <DependentUpon>SabtClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SabtDaneshamoz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SabtDaneshamoz.Designer.cs">
+      <DependentUpon>SabtDaneshamoz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SabtKetabdar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SabtKetabdar.Designer.cs">
+      <DependentUpon>SabtKetabdar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowInformation.Designer.cs">
+      <DependentUpon>ShowInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tamdid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tamdid.Designer.cs">
+      <DependentUpon>Tamdid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TamdidOzviat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TamdidOzviat.Designer.cs">
+      <DependentUpon>TamdidOzviat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VirayeshKetabdar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VirayeshKetabdar.Designer.cs">
+      <DependentUpon>VirayeshKetabdar.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddDate.resx">
+      <DependentUpon>AddDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfzodanSanad.resx">
+      <DependentUpon>AfzodanSanad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmanatKetab.resx">
+      <DependentUpon>AmanatKetab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AzaKetabkhane.resx">
+      <DependentUpon>AzaKetabkhane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeletedItems.resx">
+      <DependentUpon>DeletedItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FaramoshiRamz.resx">
+      <DependentUpon>FaramoshiRamz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportClass.resx">
+      <DependentUpon>ReportClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportDoc.resx">
+      <DependentUpon>ReportDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportMem.resx">
+      <DependentUpon>ReportMem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SabtClass.resx">
+      <DependentUpon>SabtClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SabtDaneshamoz.resx">
+      <DependentUpon>SabtDaneshamoz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SabtKetabdar.resx">
+      <DependentUpon>SabtKetabdar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowInformation.resx">
+      <DependentUpon>ShowInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tamdid.resx">
+      <DependentUpon>Tamdid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TamdidOzviat.resx">
+      <DependentUpon>TamdidOzviat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VirayeshKetabdar.resx">
+      <DependentUpon>VirayeshKetabdar.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{4a4d5a9d-896b-4d48-bfb9-bfad50139d70}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{9fc7a913-bb5e-4c2a-9dfc-ad0c49e991e4}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Annotation-2022-10-26-160545_1.ico" />
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

@@ -1,0 +1,15 @@
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\DAL.dll.config
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\DAL.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\DAL.pdb
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\BE.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\EntityFramework.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\BE.pdb
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\BE.dll.config
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\EntityFramework.xml
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\obj\Debug\DAL.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\DAL\obj\Debug\DAL.pdb

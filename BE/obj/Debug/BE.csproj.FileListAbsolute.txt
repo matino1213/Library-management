@@ -1,0 +1,12 @@
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\bin\Debug\BE.dll.config
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\bin\Debug\BE.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\bin\Debug\BE.pdb
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\bin\Debug\EntityFramework.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\bin\Debug\EntityFramework.SqlServer.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\bin\Debug\EntityFramework.xml
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\bin\Debug\EntityFramework.SqlServer.xml
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\obj\Debug\BE.csproj.CopyComplete
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\obj\Debug\BE.dll
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\obj\Debug\BE.pdb
+D:\دوره توسعه گر\نرم افزار مدیریت کتابخانه\BE\obj\Debug\BE.csproj.AssemblyReference.cache

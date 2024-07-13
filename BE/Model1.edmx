@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BookLoan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mem_id" Type="int" Nullable="false" />
+          <Property Name="doc_id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="BookName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Condition" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateReceived" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Classroom">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassGrade" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookLoan" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeletedBookLoan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mem_id" Type="int" Nullable="false" />
+          <Property Name="doc_id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="BookName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Condition" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateReceived" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DeletedDocument">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Writer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Inventory" Type="nvarchar" MaxLength="50" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoverName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="nvarchar" MaxLength="100" />
+          <Property Name="Topic" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="HelpNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookLoan" Type="int" />
+        </EntityType>
+        <EntityType Name="DeletedMembers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" />
+          <Property Name="NationalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Credit" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="OtherSpecifications" Type="nvarchar" MaxLength="500" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="CompletionDate" Type="datetime" />
+          <Property Name="Classroom_id" Type="int" />
+          <Property Name="UserType" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookLoan" Type="int" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DocumentRegistration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Writer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Inventory" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="CoverName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="nvarchar" MaxLength="10" />
+          <Property Name="Topic" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="HelpNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookLoan" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Librarians">
+          <Key>
+            <PropertyRef Name="Log_id" />
+          </Key>
+          <Property Name="Log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Log_UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Log_Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NationalCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="string" Type="nvarchar" MaxLength="50" />
+          <Property Name="bool" Type="bit" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MemberRegistration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" />
+          <Property Name="NationalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Credit" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="OtherSpecifications" Type="nvarchar" MaxLength="500" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="CompletionDate" Type="datetime" />
+          <Property Name="Classroom_id" Type="int" />
+          <Property Name="UserType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BookLoan" Type="int" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Library.dbo.BookReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BookReport">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="BookName" />
+            <PropertyRef Name="Writer" />
+            <PropertyRef Name="BookLoan" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Writer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BookLoan" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Library.dbo.UserReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserReport">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="NationalCode" />
+            <PropertyRef Name="BookLoan" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NationalCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserType" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookLoan" Type="int" Nullable="false" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_BookLoan_DocumentRegistration">
+          <End Role="DocumentRegistration" Type="Self.DocumentRegistration" Multiplicity="1" />
+          <End Role="BookLoan" Type="Self.BookLoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentRegistration">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BookLoan">
+              <PropertyRef Name="doc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookLoan_MemberRegistration">
+          <End Role="MemberRegistration" Type="Self.MemberRegistration" Multiplicity="1" />
+          <End Role="BookLoan" Type="Self.BookLoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberRegistration">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BookLoan">
+              <PropertyRef Name="mem_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberRegistration_Classroom">
+          <End Role="Classroom" Type="Self.Classroom" Multiplicity="0..1" />
+          <End Role="MemberRegistration" Type="Self.MemberRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classroom">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MemberRegistration">
+              <PropertyRef Name="Classroom_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryModelStoreContainer">
+          <EntitySet Name="BookLoan" EntityType="Self.BookLoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Classroom" EntityType="Self.Classroom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeletedBookLoan" EntityType="Self.DeletedBookLoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeletedDocument" EntityType="Self.DeletedDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeletedMembers" EntityType="Self.DeletedMembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentRegistration" EntityType="Self.DocumentRegistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Librarians" EntityType="Self.Librarians" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="log" EntityType="Self.log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberRegistration" EntityType="Self.MemberRegistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookReport" EntityType="Self.BookReport" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BookReport].[id] AS [id], 
+    [BookReport].[BookName] AS [BookName], 
+    [BookReport].[Writer] AS [Writer], 
+    [BookReport].[BookLoan] AS [BookLoan]
+    FROM [dbo].[BookReport] AS [BookReport]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserReport" EntityType="Self.UserReport" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserReport].[id] AS [id], 
+    [UserReport].[Name] AS [Name], 
+    [UserReport].[NationalCode] AS [NationalCode], 
+    [UserReport].[UserType] AS [UserType], 
+    [UserReport].[BookLoan] AS [BookLoan], 
+    [UserReport].[ClassName] AS [ClassName]
+    FROM [dbo].[UserReport] AS [UserReport]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BookLoan_DocumentRegistration" Association="Self.FK_BookLoan_DocumentRegistration">
+            <End Role="DocumentRegistration" EntitySet="DocumentRegistration" />
+            <End Role="BookLoan" EntitySet="BookLoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookLoan_MemberRegistration" Association="Self.FK_BookLoan_MemberRegistration">
+            <End Role="MemberRegistration" EntitySet="MemberRegistration" />
+            <End Role="BookLoan" EntitySet="BookLoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberRegistration_Classroom" Association="Self.FK_MemberRegistration_Classroom">
+            <End Role="Classroom" EntitySet="Classroom" />
+            <End Role="MemberRegistration" EntitySet="MemberRegistration" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BookLoan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mem_id" Type="Int32" Nullable="false" />
+          <Property Name="doc_id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BookName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Condition" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DocumentRegistration" Relationship="Self.FK_BookLoan_DocumentRegistration" FromRole="BookLoan" ToRole="DocumentRegistration" />
+          <NavigationProperty Name="MemberRegistration" Relationship="Self.FK_BookLoan_MemberRegistration" FromRole="BookLoan" ToRole="MemberRegistration" />
+        </EntityType>
+        <EntityType Name="Classroom">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClassGrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookLoan" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MemberRegistration" Relationship="Self.FK_MemberRegistration_Classroom" FromRole="Classroom" ToRole="MemberRegistration" />
+        </EntityType>
+        <EntityType Name="DeletedBookLoan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mem_id" Type="Int32" Nullable="false" />
+          <Property Name="doc_id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BookName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Condition" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateReceived" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DeletedDocument">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Inventory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CoverName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Topic" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HelpNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookLoan" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DeletedMembers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="NationalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Credit" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OtherSpecifications" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="CompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="Classroom_id" Type="Int32" />
+          <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookLoan" Type="Int32" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DocumentRegistration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Inventory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CoverName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PartNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Topic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="HelpNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookLoan" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BookLoan1" Relationship="Self.FK_BookLoan_DocumentRegistration" FromRole="DocumentRegistration" ToRole="BookLoan" />
+        </EntityType>
+        <EntityType Name="Librarians">
+          <Key>
+            <PropertyRef Name="Log_id" />
+          </Key>
+          <Property Name="Log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Log_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Log_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NationalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="string" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bool" Type="Boolean" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MemberRegistration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="NationalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Credit" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OtherSpecifications" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="CompletionDate" Type="DateTime" Precision="3" />
+          <Property Name="Classroom_id" Type="Int32" />
+          <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BookLoan" Type="Int32" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BookLoan1" Relationship="Self.FK_BookLoan_MemberRegistration" FromRole="MemberRegistration" ToRole="BookLoan" />
+          <NavigationProperty Name="Classroom" Relationship="Self.FK_MemberRegistration_Classroom" FromRole="MemberRegistration" ToRole="Classroom" />
+        </EntityType>
+        <EntityType Name="BookReport">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="BookName" />
+            <PropertyRef Name="Writer" />
+            <PropertyRef Name="BookLoan" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BookLoan" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserReport">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="NationalCode" />
+            <PropertyRef Name="BookLoan" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NationalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookLoan" Type="Int32" Nullable="false" />
+          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_BookLoan_DocumentRegistration">
+          <End Role="DocumentRegistration" Type="Self.DocumentRegistration" Multiplicity="1" />
+          <End Role="BookLoan" Type="Self.BookLoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentRegistration">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BookLoan">
+              <PropertyRef Name="doc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookLoan_MemberRegistration">
+          <End Role="MemberRegistration" Type="Self.MemberRegistration" Multiplicity="1" />
+          <End Role="BookLoan" Type="Self.BookLoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberRegistration">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="BookLoan">
+              <PropertyRef Name="mem_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberRegistration_Classroom">
+          <End Role="Classroom" Type="Self.Classroom" Multiplicity="0..1" />
+          <End Role="MemberRegistration" Type="Self.MemberRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classroom">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MemberRegistration">
+              <PropertyRef Name="Classroom_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookLoan" EntityType="Self.BookLoan" />
+          <EntitySet Name="Classroom" EntityType="Self.Classroom" />
+          <EntitySet Name="DeletedBookLoan" EntityType="Self.DeletedBookLoan" />
+          <EntitySet Name="DeletedDocument" EntityType="Self.DeletedDocument" />
+          <EntitySet Name="DeletedMembers" EntityType="Self.DeletedMembers" />
+          <EntitySet Name="DocumentRegistration" EntityType="Self.DocumentRegistration" />
+          <EntitySet Name="Librarians" EntityType="Self.Librarians" />
+          <EntitySet Name="log" EntityType="Self.log" />
+          <EntitySet Name="MemberRegistration" EntityType="Self.MemberRegistration" />
+          <EntitySet Name="BookReport" EntityType="Self.BookReport" />
+          <EntitySet Name="UserReport" EntityType="Self.UserReport" />
+          <AssociationSet Name="FK_BookLoan_DocumentRegistration" Association="Self.FK_BookLoan_DocumentRegistration">
+            <End Role="DocumentRegistration" EntitySet="DocumentRegistration" />
+            <End Role="BookLoan" EntitySet="BookLoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookLoan_MemberRegistration" Association="Self.FK_BookLoan_MemberRegistration">
+            <End Role="MemberRegistration" EntitySet="MemberRegistration" />
+            <End Role="BookLoan" EntitySet="BookLoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberRegistration_Classroom" Association="Self.FK_MemberRegistration_Classroom">
+            <End Role="Classroom" EntitySet="Classroom" />
+            <End Role="MemberRegistration" EntitySet="MemberRegistration" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibraryModelStoreContainer" CdmEntityContainer="LibraryEntities">
+          <EntitySetMapping Name="BookLoan">
+            <EntityTypeMapping TypeName="LibraryModel.BookLoan">
+              <MappingFragment StoreEntitySet="BookLoan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="mem_id" ColumnName="mem_id" />
+                <ScalarProperty Name="doc_id" ColumnName="doc_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classroom">
+            <EntityTypeMapping TypeName="LibraryModel.Classroom">
+              <MappingFragment StoreEntitySet="Classroom">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ClassGrade" ColumnName="ClassGrade" />
+                <ScalarProperty Name="BookLoan" ColumnName="BookLoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeletedBookLoan">
+            <EntityTypeMapping TypeName="LibraryModel.DeletedBookLoan">
+              <MappingFragment StoreEntitySet="DeletedBookLoan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="mem_id" ColumnName="mem_id" />
+                <ScalarProperty Name="doc_id" ColumnName="doc_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeletedDocument">
+            <EntityTypeMapping TypeName="LibraryModel.DeletedDocument">
+              <MappingFragment StoreEntitySet="DeletedDocument">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="Writer" ColumnName="Writer" />
+                <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="CoverName" ColumnName="CoverName" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HelpNumber" ColumnName="HelpNumber" />
+                <ScalarProperty Name="BookLoan" ColumnName="BookLoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeletedMembers">
+            <EntityTypeMapping TypeName="LibraryModel.DeletedMembers">
+              <MappingFragment StoreEntitySet="DeletedMembers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OtherSpecifications" ColumnName="OtherSpecifications" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="Classroom_id" ColumnName="Classroom_id" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="BookLoan" ColumnName="BookLoan" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentRegistration">
+            <EntityTypeMapping TypeName="LibraryModel.DocumentRegistration">
+              <MappingFragment StoreEntitySet="DocumentRegistration">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="Writer" ColumnName="Writer" />
+                <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="CoverName" ColumnName="CoverName" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HelpNumber" ColumnName="HelpNumber" />
+                <ScalarProperty Name="BookLoan" ColumnName="BookLoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Librarians">
+            <EntityTypeMapping TypeName="LibraryModel.Librarians">
+              <MappingFragment StoreEntitySet="Librarians">
+                <ScalarProperty Name="Log_id" ColumnName="Log_id" />
+                <ScalarProperty Name="Log_UserName" ColumnName="Log_UserName" />
+                <ScalarProperty Name="Log_Password" ColumnName="Log_Password" />
+                <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="log">
+            <EntityTypeMapping TypeName="LibraryModel.log">
+              <MappingFragment StoreEntitySet="log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="string" ColumnName="string" />
+                <ScalarProperty Name="bool" ColumnName="bool" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberRegistration">
+            <EntityTypeMapping TypeName="LibraryModel.MemberRegistration">
+              <MappingFragment StoreEntitySet="MemberRegistration">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OtherSpecifications" ColumnName="OtherSpecifications" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+                <ScalarProperty Name="Classroom_id" ColumnName="Classroom_id" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="BookLoan" ColumnName="BookLoan" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookReport">
+            <EntityTypeMapping TypeName="LibraryModel.BookReport">
+              <MappingFragment StoreEntitySet="BookReport">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="Writer" ColumnName="Writer" />
+                <ScalarProperty Name="BookLoan" ColumnName="BookLoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserReport">
+            <EntityTypeMapping TypeName="LibraryModel.UserReport">
+              <MappingFragment StoreEntitySet="UserReport">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="BookLoan" ColumnName="BookLoan" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
